@@ -431,9 +431,9 @@ const remove = (ed: Editor, name: string, vars?: FormatVars, node?: Node | Range
     // Process the children
     if (format.deep) {
       if (children.length) {
-        Arr.each(children, (child) => {
-          process(child);
-        });
+        for (let i = 0; i < children.length; i++) {
+          process(children[i]);
+        }
 
         if (hasContentEditableState) {
           contentEditable = lastContentEditable; // Restore last contentEditable state from stack
